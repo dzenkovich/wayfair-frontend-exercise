@@ -1,14 +1,21 @@
 import initialState from './initialState'
 import Types from '../constants/actionTypes'
 
-export default function(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.LOAD_LAYOUT_SUCCESS:
+    case Types.LOGIN_USER_SUCCESS:
       return {
         ...state,
-        layout: action.payload,
+        user: action.payload,
+      }
+    case Types.LOGOUT_USER:
+      return {
+        ...state,
+        user: null,
       }
     default:
       return { ...state }
   }
 }
+
+export default reducer

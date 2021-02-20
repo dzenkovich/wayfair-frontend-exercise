@@ -1,10 +1,12 @@
-import { createAsyncAction } from '../../common/utils'
+import { createAction, createAsyncAction } from '../../common/utilities'
 import { serverErrorHandler } from '../../common/actions/actions'
 import Service from '../../common/services/service'
 import Types from '../constants/actionTypes'
 import { URLS } from '../constants'
 
-export const loadLayout = createAsyncAction(Types.LOAD_LAYOUT, (dispatch, data) => {
-  dispatch({ type: Types.LOAD_LAYOUT, payload: data })
-  return Service.get(URLS.layout, {})
+export const login = createAsyncAction(Types.LOGIN_USER, (dispatch) => {
+  dispatch({ type: Types.LOGIN_USER })
+  return Service.get(URLS.login)
 }, serverErrorHandler)
+
+export const logout = createAction(Types.LOGOUT_USER)

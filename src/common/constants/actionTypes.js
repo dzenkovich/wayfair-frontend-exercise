@@ -1,5 +1,8 @@
-export default {
-  LOAD_COMMON: 'LOAD_COMMON',
-  LOAD_COMMON_SUCCESS: 'LOAD_COMMON_SUCCESS',
-  LOAD_COMMON_FAIL: 'LOAD_COMMON_FAIL',
+// Common Action Types
+
+const actionTypes = {
+  DISPOSE_SERVER_ERROR: 'DISPOSE_SERVER_ERROR',
+  SERVER_ERROR: 'SERVER_ERROR',
 }
+
+export default actionTypes

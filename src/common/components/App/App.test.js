@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import store from '../../../store'
+import { Provider } from 'react-redux'
+import React from 'react'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Wayfair/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders header', () => {
+  render(<Provider store={store}><App /></Provider>);
+  const headerElement = screen.getByRole('header');
+  expect(headerElement).toBeInTheDocument();
 });

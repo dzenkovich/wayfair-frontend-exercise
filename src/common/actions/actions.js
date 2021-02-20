@@ -1,10 +1,8 @@
-import { createAsyncAction } from '../../common/utils'
-import { serverErrorHandler } from '../../common/actions/actions'
-import Service from '../../common/services/service'
+import { createAction, readServerError } from '../utilities'
 import Types from '../constants/actionTypes'
-import { URLS } from '../constants'
 
-export const loadCommon = createAsyncAction(Types.LOAD_COMMON, (dispatch, data) => {
-  dispatch({ type: Types.LOAD_COMMON, payload: data })
-  return Service.get(URLS.common, {})
-}, serverErrorHandler)
+export const serverErrorHandler = (dispatch, response) => {
+  dispatch(serverError(readServerError(response)))
+}
+
+export const serverError = createAction(Types.SERVER_ERROR)
