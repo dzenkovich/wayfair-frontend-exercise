@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AppBar, Typography, Toolbar } from '@material-ui/core'
+import { AppBar, Toolbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ title, children }) => {
+const Header = ({ children }) => {
   const classes = useStyles();
 
   return (
@@ -34,11 +34,7 @@ const Header = ({ title, children }) => {
 }
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired,
-}
-
-Header.defaultProps = {
-  title: '',
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 export default React.memo(Header)
